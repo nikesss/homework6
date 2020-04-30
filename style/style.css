@@ -147,16 +147,15 @@ header {
   font-weight: 400;
   font-size: 15px;
   color: #a0a0a0;
+  margin-bottom: 100px;
 }
 .cards {
   display: flex;
   justify-content: space-between;
-
   flex-wrap: wrap;
-  margin-top: 100px;
   margin-bottom: 110px;
 }
-.item {
+.cards .item {
   position: relative;
   display: inline-block;
 }
@@ -229,6 +228,103 @@ header {
   padding-bottom: 70px;
   font-size: 14px;
 }
+.grid_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  line-height: 0;
+}
+.grid_cards .item {
+  position: relative;
+  background-image: linear-gradient(
+      to top,
+      rgba(252, 227, 138, 0.7),
+      rgba(243, 129, 129, 0.7)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(252, 227, 138, 0.7),
+      rgba(252, 227, 138, 0.7)
+    );
+}
+.content_for_card {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: center;
+  opacity: 0;
+}
+.grid_cards .item .content_for_card img {
+  width: 25px;
+  height: 25px;
+}
+.grid_cards .item .content_for_card h3 {
+  font-size: 14px;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.grid_cards .item .content_for_card p {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  font-style: italic;
+  color: #ffffff;
+}
+.grid_cards .item img:hover {
+  opacity: 0.1;
+  transition: 0.3s ease-in-out;
+}
+.grid_cards .item:hover .content_for_card {
+  transform: 0.3s;
+  opacity: 1;
+}
+.grid_cards .item img {
+  transition: 0.3s ease-in-out;
+  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.grid_cards .item:nth-child(3) {
+  grid-column: 3/4;
+  grid-row: 1/3;
+}
+
+.grid_blog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 25px;
+}
+
+.grid_blog .item {
+  display: flex;
+}
+.grid_blog .item:nth-child(1),
+.grid_blog .item:nth-child(2),
+.grid_blog .item:nth-child(3) {
+  border-bottom: 1px solid #e5e5e5;
+}
+.grid_blog .item .logo {
+  padding: 0 28px;
+}
+
+.grid_blog .item .text h3 {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 24px;
+  padding-top: 0;
+}
+.grid_blog .item .text p {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 15px;
+  color: #999999;
+  padding-bottom: 40px;
+}
 @media (min-height: 1000px) {
   .content h2 {
     padding-top: 130px;
@@ -288,6 +384,20 @@ header {
     width: 150px;
     height: 96px;
   }
+
+  .grid_cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid_cards .item:nth-child(3) {
+    grid-column: 1/2;
+    grid-row: 2/4;
+  }
+  .grid_blog {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid_blog .item:nth-child(4) {
+    border-bottom: 1px solid #e5e5e5;
+  }
 }
 
 @media (max-width: 768px) {
@@ -332,5 +442,18 @@ header {
   }
   .content a {
     font-size: 33px;
+  }
+  .grid_cards {
+    grid-template-columns: 1fr;
+  }
+  .grid_cards .item:nth-child(3) {
+    grid-column: 1/2;
+    grid-row: 3/5;
+  }
+  .grid_blog {
+    grid-template-columns: 1fr;
+  }
+  .grid_blog .item:nth-child(5) {
+    border-bottom: 1px solid #e5e5e5;
   }
 }
